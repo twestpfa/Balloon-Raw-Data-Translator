@@ -1,0 +1,41 @@
+; Balloon Raw Data Translator v0.1
+; Created by: Thomas Westpfal
+; Filter Data Format: v1.0
+; Commented lines are denoted with a ';'
+;
+; NOTE: Use this file to modify the way the 'Data Translator' filters
+; the given data.
+;
+; The 'lower_index' is position of the starting character and the
+; 'upper_index' is the position of the last character (inclusive)
+;
+; Indices start with the first character being 0 and include all
+; characters (i.e. includes spaces)
+;
+; Ex. 'test sentence' -> {1, 8} will give you -> 'est sent'
+;
+; The 'name' of any of the items MUST NOT contain a ';' or a ','
+; ANY USAGE of these characters in the 'name' will break the way
+; the file is read.
+;
+; If this file is ever deleted, a new one will automatically be created
+; with all of the default values.
+;
+; name,lower_index,upper_index
+
+PACKET SEND TIME, 1, 7
+| - hour, 1, 2
+| - minute, 3, 4
+| - second, 5, 6
+LATITUDE COORDINATES, 8, 15
+LONGITUDE COORDINATES, 17, 25
+BALLOON INDICATOR, 26, 26
+COURSE (degrees), 27, 29
+SPEED (nautical miles), 31, 33
+ALTITUDE (feet), 37, 42
+TELEMETRY COUNTER, 44, 49
+TEMPERATURE (celsius), 53, 56
+PRESSURE (millibars), 60, 65
+BATTERY VOLTAGE (volts), 71, 74
+VALID SATELLITES, 77, 78
+COMMENT, 81, 999
